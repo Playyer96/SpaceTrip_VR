@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Wall_Atlas_01_Dif
-  m_Shader: {fileID: 4800000, guid: efe55602ea9cd2949800cb2cc4e6351b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 57c725ed67cfebb45a96187dd357cd5b, type: 3}
   m_ShaderKeywords: COLOR_ON DETAIL_MASK_ON DETAIL_ON EMISSION_ON NORMAL_ON PHONG_ON
     _EMISSION _GLOSSYREFLECTIONS_OFF _METALLICGLOSSMAP _NORMALMAP _SPECULARHIGHLIGHTS_OFF
   m_LightmapFlags: 1

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: BODY_diffuse 1
-  m_Shader: {fileID: 4800000, guid: efe55602ea9cd2949800cb2cc4e6351b, type: 3}
+  m_Shader: {fileID: 4800000, guid: 57c725ed67cfebb45a96187dd357cd5b, type: 3}
   m_ShaderKeywords: COLOR_ON NORMAL_ON PHONG_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
