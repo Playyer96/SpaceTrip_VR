@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: a6b3487c594dcb64892586a411d7fa42
+timeCreated: 1505164631
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 180
+  forceTextureCase: -1
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Reitam
+  fontNames:
+  - Reitam
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

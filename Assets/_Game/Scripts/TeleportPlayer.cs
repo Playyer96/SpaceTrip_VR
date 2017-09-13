@@ -55,7 +55,7 @@ public class TeleportPlayer : MonoBehaviour
   public void PointerEnterOutline(GameObject outline)
   {
     gazedAt = true;
-    if (inactiveColor != null)
+    if (gazedAt)
     {
 
       outline.GetComponent<Renderer>().material.SetFloat("_Outline", outlineWidth);
