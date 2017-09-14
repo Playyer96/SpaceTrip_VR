@@ -1,26 +1,28 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TeleportPlayer : MonoBehaviour
 {
 
-  [SerializeField] private float distanceGap = .125f;
+  #region Variables
+  [Header("Movement Properties")]
   [SerializeField] private float velocity;
   [SerializeField] private Color inactiveColor;
   [SerializeField] private Color gazedAtColor;
-  [Range(0, .5f)][SerializeField] private float outlineWidth;
-  [SerializeField] private float lerpTime;
-
+  [Range(0, .05f)] [SerializeField] private float outlineWidth;
 
   private new Transform transform;
   private Transform lastTarget;
   private Transform target;
+
   private bool gazedAt;
-  private Color lerpColor = Color.white;
-  private float outlineWidthInactive;
-  private float lerpOutline;
+
+  private float outlineWidthInactive = 0;
 
   IEnumerator lerp;
+
+#endregion
 
   private void Awake()
   {
@@ -29,16 +31,7 @@ public class TeleportPlayer : MonoBehaviour
 
   }
 
-  void Update()
-  {
-
-    lerpColor = Color.Lerp(gazedAtColor, inactiveColor, Mathf.PingPong(Time.time, 1));
-    lerpColor = Color.Lerp(inactiveColor, gazedAtColor, Mathf.PingPong(Time.time, 1));
-    lerpOutline = Mathf.Lerp(outlineWidth, outlineWidthInactive, 5 * Time.deltaTime);
-    lerpOutline = Mathf.Lerp(outlineWidthInactive, outlineWidth, 5 * Time.deltaTime);
-
-  }
-
+ #region Methods
   public void PointerEnter(GameObject teleport)
   {
 
@@ -96,6 +89,9 @@ public class TeleportPlayer : MonoBehaviour
 
   }
 
+  #endregion
+
+  #region Coroutines
   private IEnumerator Lerp()
   {
 
@@ -123,4 +119,6 @@ public class TeleportPlayer : MonoBehaviour
     lastTarget.gameObject.SetActive(false);
 
   }
+
+  #endregion 
 }

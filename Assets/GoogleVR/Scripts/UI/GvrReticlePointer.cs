@@ -31,7 +31,7 @@ public class GvrReticlePointer : GvrBasePointer
   // Minimum distance of the reticle (in meters).
   public const float RETICLE_DISTANCE_MIN = 0.45f;
   // Maximum distance of the reticle (in meters).
-  public const float RETICLE_DISTANCE_MAX = 80.0f;
+  public const float RETICLE_DISTANCE_MAX = 30.0f;
 
   /// Number of segments making the reticle circle.
   public int reticleSegments = 20;
@@ -41,7 +41,6 @@ public class GvrReticlePointer : GvrBasePointer
 
   [SerializeField] private Color inactiveColor;
   [SerializeField] private Color activeColor;
-  private Color lerpColor = Color.white;
 
   /// Sorting order to use for the reticle's renderer.
   /// Range values come from https://docs.unity3d.com/ScriptReference/Renderer-sortingOrder.html.
@@ -123,8 +122,6 @@ public class GvrReticlePointer : GvrBasePointer
     float inner_diameter = 2.0f * Mathf.Tan(inner_half_angle_radians);
     float outer_diameter = 2.0f * Mathf.Tan(outer_half_angle_radians);
 
-    lerpColor = Color.Lerp(inactiveColor, activeColor, Mathf.PingPong(Time.time, 1));
-    lerpColor = Color.Lerp(activeColor, inactiveColor, Mathf.PingPong(Time.time, 1));
     ReticleInnerDiameter =
       Mathf.Lerp(ReticleInnerDiameter, inner_diameter, Time.deltaTime * reticleGrowthSpeed);
     ReticleOuterDiameter =

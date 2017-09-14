@@ -8,7 +8,6 @@ public class AnimatedDialog : MonoBehaviour {
   [SerializeField] private string dialog;
   [SerializeField] private float velocity = .1f;
 
-  int stringIndex = 0;
   int characterIndex = 0;
 
   IEnumerator displayTimer;

@@ -7,10 +7,8 @@ public class startJourneyCinematic : MonoBehaviour
 
   [SerializeField] private PlayableDirector timeLine;
   [SerializeField] private GameObject actor;
-  [SerializeField] private float smoothTime = 0.3F;
 
   Coroutine waitForTimeLineToFinish;
-  Vector3 velocity = Vector3.zero;
 
   public bool finishCinematic;
 

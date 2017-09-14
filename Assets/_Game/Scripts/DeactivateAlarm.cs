@@ -5,15 +5,19 @@ using UnityEngine.UI;
 public class DeactivateAlarm : MonoBehaviour
 {
 
+  #region Variables
   [SerializeField] private MonoBehaviour gvrAudioSource;
   [SerializeField] private GameObject imageEffect;
   [SerializeField] private float fillTime = 2f;
-  [SerializeField] private Slider deactivareProgress;
+  [SerializeField] private Slider deactivateProgress;
 
   private Coroutine deactivateCoroutine;
+
   private float timer;
+
   private bool gazedAt;
 
+  #endregion
 
   void Awake()
   {
@@ -25,6 +29,7 @@ public class DeactivateAlarm : MonoBehaviour
 
   }
 
+ #region Methods
   public void PointerEnter()
   {
 
@@ -32,7 +37,7 @@ public class DeactivateAlarm : MonoBehaviour
 
     if (imageEffect.GetComponent<ImageEffect>().enabled == false)
     {
-      deactivareProgress.value = 1;
+      deactivateProgress.value = 1;
     }
     else
       deactivateCoroutine = StartCoroutine(DeactivateCoroutine());
@@ -49,37 +54,12 @@ public class DeactivateAlarm : MonoBehaviour
     }
 
     timer = 0f;
-    deactivareProgress.value = 0;
+    deactivateProgress.value = 0;
 
     if (imageEffect.GetComponent<ImageEffect>().enabled == false)
     {
-      deactivareProgress.value = 1;
+      deactivateProgress.value = 1;
     }
-
-  }
-
-  IEnumerator DeactivateCoroutine()
-  {
-
-    timer = 0;
-
-    while (timer < fillTime)
-    {
-      timer += Time.deltaTime;
-
-      deactivareProgress.value = timer / fillTime;
-
-      yield return null;
-
-      if (gazedAt)
-        continue;
-
-      timer = 0;
-      deactivareProgress.value = 0;
-      yield break;
-    }
-
-    StopAlarm();
 
   }
 
@@ -92,4 +72,30 @@ public class DeactivateAlarm : MonoBehaviour
 
   }
 
+  #endregion
+
+  IEnumerator DeactivateCoroutine()
+  {
+
+    timer = 0;
+
+    while (timer < fillTime)
+    {
+      timer += Time.deltaTime;
+
+      deactivateProgress.value = timer / fillTime;
+
+      yield return null;
+
+      if (gazedAt)
+        continue;
+
+      timer = 0;
+      deactivateProgress.value = 0;
+      yield break;
+    }
+
+    StopAlarm();
+
+  }
 }

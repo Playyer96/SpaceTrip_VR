@@ -21,6 +21,8 @@ public class LevelManager : MonoBehaviour {
   public bool isGameOver;
   public bool isDead;
 
+  bool wakeup = false;
+
   void Awake()
   {
 
@@ -51,15 +53,18 @@ public class LevelManager : MonoBehaviour {
   void Update()
   {
 
-    WakeUp();
+    if (!wakeup && cinematic.finishCinematic == true)
+    {
+      Invoke("WakeUp", .1f);
+      wakeup = true;
+    }
 
   }
 
   void WakeUp()
   {
 
-    if (cinematic.finishCinematic == true)
-    {
+      tutorial.GetComponent<AnimatedDialog>().TipyingAnimation();
       mission.text = "Desactiva la alarma";
       missionDescription.text = "Encuentra el panel de desactivacion de la alarma, siguiendo el sonido";
       cam.GetComponent<CinemachineBrain>().enabled = false;
@@ -68,8 +73,6 @@ public class LevelManager : MonoBehaviour {
       missionsCanvas.enabled = true;
       camAnimator.SetBool("MissionText", true);
       tutorial.SetBool("playAnimTuto", true);
-      tutorial.GetComponent<AnimatedDialog>().TipyingAnimation();
-    }
 
   }
 
