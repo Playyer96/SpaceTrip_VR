@@ -10,6 +10,11 @@ public class DeactivateAlarm : MonoBehaviour
   [SerializeField] private GameObject imageEffect;
   [SerializeField] private float fillTime = 2f;
   [SerializeField] private Slider deactivateProgress;
+  [SerializeField] private Text pickToolText;
+  [SerializeField] private AnimatedDialog toolText;
+  [SerializeField] private GameObject tools;
+  [SerializeField] private GameObject uselessTools;
+  [SerializeField] private LevelManager levelManager;
 
   private Coroutine deactivateCoroutine;
 
@@ -17,30 +22,57 @@ public class DeactivateAlarm : MonoBehaviour
 
   private bool gazedAt;
 
+  bool firstTime;
+
   #endregion
 
   void Awake()
   {
 
+    firstTime = true;
     gvrAudioSource.enabled = true;
+    pickToolText.enabled = false;
     gvrAudioSource.GetComponent<GvrAudioSource>().Play();
     imageEffect.GetComponent<ImageEffect>().enabled = true;
-    imageEffect.GetComponent<Animator>().enabled = true;
+    tools.SetActive(false);
+     uselessTools.SetActive(true);
 
   }
 
- #region Methods
-  public void PointerEnter()
+  void Update()
   {
 
+    if (firstTime == false)
+    {
+      tools.SetActive(true);
+      uselessTools.SetActive(false);
+    }
+
+  }
+
+  #region Methods
+  public void PointerEnter()
+  {
     gazedAt = true;
 
-    if (imageEffect.GetComponent<ImageEffect>().enabled == false)
+    if (LevelManager.count == 5)
     {
-      deactivateProgress.value = 1;
+
+      if (imageEffect.GetComponent<ImageEffect>().enabled == false)
+      {
+        deactivateProgress.value = 1;
+      }
+      else
+        deactivateCoroutine = StartCoroutine(DeactivateCoroutine());
     }
-    else
-      deactivateCoroutine = StartCoroutine(DeactivateCoroutine());
+
+    if (firstTime == true)
+    {
+      firstTime = false;
+      pickToolText.enabled = true;
+      toolText.TipyingAnimation();
+
+    }
 
   }
 
@@ -69,7 +101,6 @@ public class DeactivateAlarm : MonoBehaviour
     gvrAudioSource.GetComponent<GvrAudioSource>().Stop();
     imageEffect.GetComponent<ImageEffect>().enabled = false;
     imageEffect.GetComponent<Animator>().enabled = false;
-
   }
 
   #endregion
@@ -96,6 +127,7 @@ public class DeactivateAlarm : MonoBehaviour
     }
 
     StopAlarm();
+    levelManager.youWin = true;
 
   }
 }

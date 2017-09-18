@@ -9,7 +9,6 @@ public class PickUP : MonoBehaviour {
   [SerializeField] private GameObject fillProgress;
   [SerializeField] private Image deactivateProgress;
   [Range(0, .05f)] [SerializeField] private float outlineWidth;
-
   private Coroutine deactivateCoroutine;
 
   private float outlineWidthInactive = 0;
@@ -68,6 +67,8 @@ public class PickUP : MonoBehaviour {
     deactivateProgress.fillAmount = 0;
     gameObject.SetActive(false);
     fillProgress.SetActive(false);
+    LevelManager.count++;
+    Debug.Log(LevelManager.count);
 
   }
 
