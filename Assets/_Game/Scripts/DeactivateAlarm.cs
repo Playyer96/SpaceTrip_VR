@@ -34,6 +34,7 @@ public class DeactivateAlarm : MonoBehaviour
     pickToolText.enabled = false;
     gvrAudioSource.GetComponent<GvrAudioSource>().Play();
     imageEffect.GetComponent<ImageEffect>().enabled = true;
+    levelManager = levelManager.GetComponent<LevelManager>();
     tools.SetActive(false);
      uselessTools.SetActive(true);
 
@@ -98,6 +99,7 @@ public class DeactivateAlarm : MonoBehaviour
   private void StopAlarm()
   {
 
+    levelManager.youWin = true;
     gvrAudioSource.GetComponent<GvrAudioSource>().Stop();
     imageEffect.GetComponent<ImageEffect>().enabled = false;
     imageEffect.GetComponent<Animator>().enabled = false;
@@ -127,7 +129,6 @@ public class DeactivateAlarm : MonoBehaviour
     }
 
     StopAlarm();
-    levelManager.youWin = true;
 
   }
 }

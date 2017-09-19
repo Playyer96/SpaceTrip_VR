@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour {
   [SerializeField] private Timer timerCountDown;
   [SerializeField] private startJourneyCinematic cinematic;
   [SerializeField] private Animator camAnimator;
+  [SerializeField] private Animator winAnimator;
   [SerializeField] private Animator tutorial;
   [SerializeField] private Camera cam;
   [SerializeField] private GameObject gameOver;
@@ -88,7 +89,7 @@ public class LevelManager : MonoBehaviour {
       wakeup = true;
     }
 
-    if(isGameOver == true)
+    if (isGameOver == true)
     {
       GameOver();
       isGameOver = false;
@@ -97,8 +98,6 @@ public class LevelManager : MonoBehaviour {
     else if (youWin == true)
     {
       ToBeContinued();
-      camAnimator.SetBool("ToBeContinued", youWin);
-      winOverSound.Play();
     }
   }
 
@@ -150,12 +149,14 @@ public class LevelManager : MonoBehaviour {
   void ToBeContinued()
   {
 
+    youWin = false;
+    winOverSound.Play();
     timerCountDown.StopCountDown();
     toBeContinued.GetComponent<AnimatedDialog>().TipyingAnimation();
+    winAnimator.SetBool("ToBeContinued", true);
     playerMovement.enabled = false;
     reticle.SetActive(false);
     StartCoroutine(LoadAsynchronously(sceneName));
-    youWin = false;
 
   }
 
