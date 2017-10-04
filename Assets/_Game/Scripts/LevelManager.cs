@@ -5,7 +5,8 @@ using UnityEngine.VR;
 using Cinemachine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour
+{
 
   //public static LevelManager Instance { get; private set; }
 
@@ -24,7 +25,8 @@ public class LevelManager : MonoBehaviour {
   [Space(20f)]
 
   [Header("References")]
-  [SerializeField] private GameObject imageEffect;
+  [SerializeField]
+  private GameObject imageEffect;
   [SerializeField] private TeleportPlayer playerMovement;
   [SerializeField] private GameObject reticle;
   [SerializeField] private GameObject alarm;
@@ -44,24 +46,24 @@ public class LevelManager : MonoBehaviour {
 
   bool wakeup = false;
 
-#endregion
+  #endregion
 
   void Awake()
   {
 
     count = 0;
 
-   /* if (Instance == null)
-    {
-      Instance = null;
-      DontDestroyOnLoad(gameObject);
-    }
-    else if (Instance != this)
-      Destroy(gameObject);*/
+    /* if (Instance == null)
+     {
+       Instance = null;
+       DontDestroyOnLoad(gameObject);
+     }
+     else if (Instance != this)
+       Destroy(gameObject);*/
 
     VRDevice.DisableAutoVRCameraTracking(cam, true);
     cinematic.StartTimeLine();
-    playerMovement = playerMovement.GetComponent<TeleportPlayer>();
+    playerMovement.GetComponent<TeleportPlayer>().enabled = false;
 
   }
 
@@ -106,15 +108,16 @@ public class LevelManager : MonoBehaviour {
   void WakeUp()
   {
 
-      tutorial.GetComponent<AnimatedDialog>().TipyingAnimation();
-      mission.text = "Desactiva la alarma";
-      missionDescription.text = "Desactiva la alarma en el tiempo determinado, para encontrarla sigue el sonido";
-      cam.GetComponent<CinemachineBrain>().enabled = false;
-      VRDevice.DisableAutoVRCameraTracking(cam, false);
-      teleportPoints.SetActive(true);
-      missionsCanvas.enabled = true;
-      camAnimator.SetBool("MissionText", true);
-      tutorial.SetBool("playAnimTuto", true);
+    tutorial.GetComponent<AnimatedDialog>().TipyingAnimation();
+    mission.text = "Desactiva la alarma";
+    missionDescription.text = "Desactiva la alarma en el tiempo determinado, para encontrarla sigue el sonido";
+    cam.GetComponent<CinemachineBrain>().enabled = false;
+     playerMovement.enabled = true;
+    VRDevice.DisableAutoVRCameraTracking(cam, false);
+    teleportPoints.SetActive(true);
+    missionsCanvas.enabled = true;
+    camAnimator.SetBool("MissionText", true);
+    tutorial.SetBool("playAnimTuto", true);
 
   }
 

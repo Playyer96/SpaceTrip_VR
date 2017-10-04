@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - component: {fileID: 482300}
   - component: {fileID: 2301146}
-  - component: {fileID: 114902836891960034}
+  - component: {fileID: 114228224350519824}
   m_Layer: 2
   m_Name: GvrReticlePointer
   m_TagString: Untagged
@@ -73,7 +73,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171526}
   m_IsPrefabParent: 1
---- !u!114 &114902836891960034
+--- !u!114 &114228224350519824
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
