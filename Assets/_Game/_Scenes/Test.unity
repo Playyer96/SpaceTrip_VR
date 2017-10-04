@@ -10076,7 +10076,7 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 211495532}
-  m_LocalRotation: {x: -0.0040119058, y: 0.1997474, z: -0.00081785663, w: -0.9798389}
+  m_LocalRotation: {x: -0.012968619, y: 0.20416504, z: -0.0027049575, w: -0.97884685}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -11475,7 +11475,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114228224350519824, guid: 60270cf52a5e94998a5a335989159738, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 60270cf52a5e94998a5a335989159738, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &338610276
@@ -11755,6 +11756,24 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 171526, guid: 60270cf52a5e94998a5a335989159738, type: 2}
   m_PrefabInternal: {fileID: 327544439}
+--- !u!114 &357070891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 357070890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7dcc90c2e60c4011896c7f21fc1f557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastMode: 1
+  overridePointerCamera: {fileID: 0}
+  reticleSegments: 20
+  reticleGrowthSpeed: 8
+  inactiveColor: {r: 0.39705884, g: 0.39705884, b: 0.39705884, a: 0.309}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  reticleSortingOrder: 32767
 --- !u!1 &357614163
 GameObject:
   m_ObjectHideFlags: 0
@@ -57867,7 +57886,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1842097195}
-  m_LocalRotation: {x: -0.0040119058, y: 0.1997474, z: -0.00081785663, w: -0.9798389}
+  m_LocalRotation: {x: -0.012968619, y: 0.20416504, z: -0.0027049575, w: -0.97884685}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

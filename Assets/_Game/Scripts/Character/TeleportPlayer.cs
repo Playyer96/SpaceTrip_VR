@@ -6,6 +6,7 @@ public class TeleportPlayer : MonoBehaviour
 {
 
   #region Variables
+
   [Header("Movement Properties")]
   [SerializeField]
   private float activateTarget = 1.75f;
@@ -21,6 +22,7 @@ public class TeleportPlayer : MonoBehaviour
   private Transform target;
 
   private bool gazedAt;
+  private bool isMoving;
   private float timer;
   private float outlineWidthInactive = 0;
 
@@ -70,12 +72,14 @@ public class TeleportPlayer : MonoBehaviour
   {
 
     gazedAt = true;
-    this.target = target;
+    if (!isMoving)
+    {
+      this.target = target;
+    }
     if (clickTarget != null)
     {
       StopCoroutine(clickTarget);
     }
-
     clickTarget = ClickTarget();
     StartCoroutine(clickTarget);
 
@@ -145,6 +149,7 @@ public class TeleportPlayer : MonoBehaviour
     {
 
       gazedAt = false;
+      isMoving = true;
 
       target.GetComponentInChildren<Renderer>().material.SetFloat("_Outline", outlineWidthInactive);
 
@@ -157,6 +162,7 @@ public class TeleportPlayer : MonoBehaviour
 
     }
 
+    isMoving = false;
     if (footStepsAudioSource.isPlaying)
       footStepsAudioSource.Stop();
     StopCoroutine(lerp);
