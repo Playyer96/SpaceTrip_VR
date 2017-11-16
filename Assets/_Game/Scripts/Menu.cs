@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
 
+
+  #region Variables
   [SerializeField] private float fillTime = 2.5f;
   [SerializeField] private float fillExitTime = 4f;
   [SerializeField] private Image startFill;
@@ -19,6 +21,7 @@ public class Menu : MonoBehaviour
   private Coroutine fillBarCoroutine;
   private float timer;
   private bool gazedAt;
+  #endregion
 
   void Awake()
   {

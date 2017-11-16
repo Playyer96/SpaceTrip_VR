@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - component: {fileID: 482300}
   - component: {fileID: 2301146}
-  - component: {fileID: 114228224350519824}
+  - component: {fileID: 114066721100983610}
   m_Layer: 2
   m_Name: GvrReticlePointer
   m_TagString: Untagged
@@ -73,7 +73,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 171526}
   m_IsPrefabParent: 1
---- !u!114 &114228224350519824
+--- !u!114 &114066721100983610
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7dcc90c2e60c4011896c7f21fc1f557, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycastMode: 1
+  raycastMode: 0
   overridePointerCamera: {fileID: 0}
   reticleSegments: 20
   reticleGrowthSpeed: 8

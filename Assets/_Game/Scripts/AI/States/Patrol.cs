@@ -26,20 +26,20 @@ public class Patrol : IState
   {
 
     // wayPointInd = Random.Range(0, wayPoints.Length);
-    // animator.SetBool("isWalking", true);
+    animator.SetBool("isWalking", true);
+    // wayPoints = GameObject.FindGameObjectsWithTag("WayPoint");
 
   }
 
   void IState.Execute()
   {
-    wayPoints = GameObject.FindGameObjectsWithTag("WayPoint");
-    animator.SetBool("isWalking", true);
-    if (Vector3.Distance(newTransform.position, wayPoints[wayPointInd].transform.position) >= 2)
+
+    if (Vector3.Distance(newTransform.position, wayPoints[wayPointInd].transform.position) >= 1)
     {
       navMeshAgent.SetDestination(wayPoints[wayPointInd].transform.position);
       navMeshAgent.destination = wayPoints[wayPointInd].transform.position;
     }
-    else if (Vector3.Distance(newTransform.position, wayPoints[wayPointInd].transform.position) <= 2)
+    else if (Vector3.Distance(newTransform.position, wayPoints[wayPointInd].transform.position) <= 1)
     {
       wayPointInd += 1;
       // wayPointInd = Random.Range(0, wayPoints.Length);

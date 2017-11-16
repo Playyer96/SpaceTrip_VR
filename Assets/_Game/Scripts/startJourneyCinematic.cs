@@ -46,9 +46,12 @@ public class startJourneyCinematic : MonoBehaviour
   {
 
     float timeLineDuration = (float)timeLine.duration;
+
     yield return new WaitForSeconds(timeLineDuration);
+
     actor.SetActive(false);
     finishCinematic = true;
+    StopCoroutine(waitForTimeLineToFinish);
 
   }
 

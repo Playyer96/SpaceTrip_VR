@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224117915082751276}
   - component: {fileID: 33976371393081384}
   - component: {fileID: 23795389227483008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Outline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 65447038018414374}
   - component: {fileID: 114158462022832660}
   - component: {fileID: 114233132188720846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ MonoBehaviour:
           m_MethodName: PointerEnter
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 224117915082751276}
+            m_ObjectArgument: {fileID: 224693972893293314}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0

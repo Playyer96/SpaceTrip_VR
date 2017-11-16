@@ -25,7 +25,6 @@ public class Interacting : IState
   {
 
     animator.SetBool("isInteracting", true);
-
     Vector3 direction = (target.position - newTransform.position).normalized;
     Quaternion lookRotation = Quaternion.LookRotation(direction);
     newTransform.rotation = Quaternion.Slerp(newTransform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
@@ -34,8 +33,6 @@ public class Interacting : IState
 
   void IState.Execute()
   {
-
-
 
   }
 

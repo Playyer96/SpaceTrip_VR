@@ -10,7 +10,7 @@ public class StartRotation : MonoBehaviour
   void Start()
   {
 
-    VRSettings.renderScale = m_RenderScale;
+    UnityEngine.XR.XRSettings.eyeTextureResolutionScale = m_RenderScale;
 
     Quaternion startQ = Quaternion.Euler(startRot);
     transform.rotation = startQ;
